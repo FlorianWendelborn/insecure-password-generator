@@ -9,10 +9,9 @@ var argv = require('yargs')
 	.alias('format', 'f')
 	.alias('output', 'o')
 	.default('output', 'stdout')
-	.default('format', 'array')
+	.default('format', 'newline')
+	.default('count', 1)
 	.default('chars', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,:;!?"§$%&/()=')
-	.demand('count')
-	.demand('length')
 	.argv;
 
 var fs = require('fs');
@@ -27,7 +26,7 @@ function generate () {
 
 function random () {
 	var data = '';
-	for (var i = 0; i < argv.length; i++) {
+	for (var i = 0; i < (argv.length || 128); i++) {
 		data += argv.chars[Math.floor(Math.random()*argv.chars.length)];
 	}
 	return data;
@@ -54,12 +53,15 @@ function format (data) {
 function output (data) {
 	switch (argv.output) {
 		case 'stdout':
+			if (data instanceof Array) data = JSON.stringify(data);
 			process.stdout.write(data);
 		break;
 		case 'stderr':
-			process.stdout.write(data);
+			if (data instanceof Array) data = JSON.stringify(data);
+			process.stderr.write(data);
 		break;
 		case 'file':
+			if (data instanceof Array) data = JSON.stringify(data);
 			if (!argv.file) {
 				console.error('require --file path for --output file');
 				process.exit(1);

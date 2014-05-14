@@ -7,13 +7,17 @@ Generates a specified amount of random passwords.
 This is not made for serious passwords. It's using the javascript function Math.random() to get random stuff, therefore it's not the most secure solution. Consider using something else for serious stuff.
 
 ## Usage
+### Install
+  `npm install https://github.com/FlorianWendelborn/passwordGen.js`
+
 ### Command Line Arguments
-| $ | long version | default | description                   |
-|--:|:-------------|:--------|:------------------------------|
-| n | count        | 1       | amount of generated passwords |
-| l | length       | 128     | length of each password       |
-| f | format       | array   | output format                 |
-| o | output       | stdout  | output method                 |
+| $ | long version | default    | description                         |
+|--:|:-------------|:-----------|:------------------------------------|
+| n | count        | 1          | amount of generated passwords       |
+| c | chars        | see source | string with all possible characters |
+| l | length       | 128        | length of each password             |
+| f | format       | newline    | output format                       |
+| o | output       | stdout     | output method                       |
 
 ### Available Formats
 |    name | description                                                 |

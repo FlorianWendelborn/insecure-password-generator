@@ -1,0 +1,22 @@
+{
+  "name": "passwordGen.js",
+  "version": "0.0.1",
+  "description": "Simple password generator.",
+  "main": "passwordGen.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlorianWendelborn/passwordGen.js.git"
+  },
+  "keywords": [
+    "password"
+  ],
+  "author": "Florian Wendelborn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FlorianWendelborn/passwordGen.js/issues"
+  },
+  "dependencies": {
+  	"yargs": "1.x"
+  },
+  "homepage": "https://github.com/FlorianWendelborn/passwordGen.js"
+}
